@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { Router } from "./routes/Router";
+
+import { GlobalStyle } from "./styles/global";
+import { defaultTheme } from "./styles/themes/default";
 
 export function App() {
-  const [count,
-     setCount] = useState(0)
-
   return (
-    <h1>Ola mundo</h1>    
-    
-  )
-
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router />
+        <GlobalStyle />
+      </BrowserRouter>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
